@@ -1,0 +1,9 @@
+thead {
+  width: 100%;
+  border: 1px solid black;
+}
+th {
+  font-size: 1.5em;
+
+  border: 1px solid black;
+}
