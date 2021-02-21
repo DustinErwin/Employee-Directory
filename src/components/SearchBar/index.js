@@ -2,7 +2,15 @@ import React from "react";
 import "./style.css";
 
 function SearchBar() {
-  return <input type="input" className="search"></input>;
+  return (
+    <div>
+      <input
+        type="input"
+        placeholder="Filter by Name"
+        className="search"
+      ></input>
+    </div>
+  );
 }
 
 export default SearchBar;
