@@ -12,19 +12,22 @@ class TableBody extends React.Component {
   componentDidMount() {
     fetchEmps()
       .then((data) => {
-        console.log(data);
         this.setState({ emps: data });
       })
       .catch((err) => console.log(err));
   }
 
+  // function filterResults(){
+  //   this.state.emps.inculdes(props.search)
+  // }
+
   render() {
     return (
       <tbody className="table-body">
-        {console.log(this.state.emps)}
         {this.state.emps.map((emp) => {
           return (
             <TableRow
+              key={emp.name}
               name={emp.name}
               email={emp.email}
               phone={emp.phone}

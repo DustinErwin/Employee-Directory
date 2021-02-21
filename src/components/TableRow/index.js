@@ -3,7 +3,7 @@ import "./style.css";
 
 function TableRow(props) {
   return (
-    <tr className="table-row">
+    <tr className="table-row" key={props.name}>
       <td>{props.name}</td>
       <td>{props.email}</td>
       <td>{props.phone}</td>

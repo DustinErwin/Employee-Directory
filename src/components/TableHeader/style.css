@@ -1,9 +1,9 @@
 thead {
   width: 100%;
-  border: 1px solid black;
+  border: 3px solid rgb(218, 10, 10);
 }
 th {
   font-size: 1.5em;
 
-  border: 1px solid black;
+  border: 3px solid rgb(219, 16, 16);
 }
