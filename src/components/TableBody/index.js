@@ -1,42 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TableRow from "../TableRow";
 
 import "./style.css";
 import fetchEmps from "../../utils/API";
 
-class TableBody extends React.Component {
-  state = {
+export default function TableBody(props) {
+  const [state, setState] = useState({
     emps: [{ name: "nerd", email: "email", years: "years", phone: "0009090" }],
-  };
+  });
 
-  componentDidMount() {
+  useEffect(() => {
     fetchEmps()
       .then((data) => {
-        this.setState({ emps: data });
+        setState({ emps: data });
       })
       .catch((err) => console.log(err));
-  }
+  }, []);
 
-  // function filterResults(){
-  //   this.state.emps.inculdes(props.search)
-  // }
+  //  searchEmps(props.search){
 
-  render() {
-    return (
-      <tbody className="table-body">
-        {this.state.emps.map((emp) => {
-          return (
-            <TableRow
-              key={emp.name}
-              name={emp.name}
-              email={emp.email}
-              phone={emp.phone}
-              years={emp.years}
-            />
-          );
-        })}
-      </tbody>
-    );
-  }
+  //  }
+
+  return (
+    <tbody className="table-body">
+      {state.emps.map((emp) => {
+        return (
+          <TableRow
+            key={emp.name}
+            name={emp.name}
+            email={emp.email}
+            phone={emp.phone}
+            years={emp.years}
+          />
+        );
+      })}
+    </tbody>
+  );
 }
-export default TableBody;

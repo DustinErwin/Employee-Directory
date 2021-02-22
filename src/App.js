@@ -20,6 +20,7 @@ class App extends Component {
 
   handleOnchange = (event) => {
     this.setState({ search: event.target.value });
+    console.log(event.target.value);
   };
 
   render() {
