@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
 
-function FilterButton() {
+function FilterButton({ clear }) {
   return (
-    <button type="button" className="filter-button">
+    <button type="button" onClick={clear} className="filter-button">
       Clear
     </button>
   );

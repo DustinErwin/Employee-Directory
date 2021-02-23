@@ -7,16 +7,16 @@ import Wrapper from "./components/Wrapper";
 class App extends Component {
   state = {
     search: "",
-    inputValue: "",
   };
 
-  clearResults = (event) => {
-    this.setState({ inputValue: "" });
+  clearResults = () => {
+    this.setState({ search: "" });
   };
 
   handleOnchange = (event) => {
-    this.setState({ ...this.state, search: event.target.value });
-    console.log(event.target.value);
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+    console.log(value);
   };
 
   render() {
@@ -24,12 +24,14 @@ class App extends Component {
       <div>
         <Wrapper>
           <input
+            value={this.state.search}
+            name="search"
             type="input"
             placeholder="Filter by Name"
             className="search"
-            onChange={this.state.handleOnchange}
+            onChange={this.handleOnchange}
           ></input>
-          <FilterButton clear={this.state.clearResults} />
+          <FilterButton clear={this.clearResults} />
         </Wrapper>
         <Table search={this.state.search} />
       </div>
