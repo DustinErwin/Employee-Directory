@@ -3,13 +3,13 @@ import TableBody from "../TableBody";
 import TableHeader from "../TableHeader";
 import "./style.css";
 
-function Table(props) {
+function Table({ search }) {
   return (
     <div className="table">
       <h1>Employees</h1>
       <table>
         <TableHeader />
-        <TableBody search={props.search} />
+        <TableBody search={search} />
       </table>
     </div>
   );

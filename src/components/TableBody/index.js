@@ -4,7 +4,7 @@ import TableRow from "../TableRow";
 import "./style.css";
 import fetchEmps from "../../utils/API";
 
-export default function TableBody(props) {
+export default function TableBody({ search }) {
   const [state, setState] = useState({
     emps: [{ name: "nerd", email: "email", years: "years", phone: "0009090" }],
   });
@@ -17,9 +17,13 @@ export default function TableBody(props) {
       .catch((err) => console.log(err));
   }, []);
 
-  //  searchEmps(props.search){
-
-  //  }
+  useEffect(() => {
+    function searchEmps() {
+      let filteredEmps = state.emps.filter((emp) => emp.name.includes(search));
+      setState({ ...state, emps: filteredEmps });
+    }
+    searchEmps();
+  }, [search]);
 
   return (
     <tbody className="table-body">

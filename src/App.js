@@ -10,16 +10,12 @@ class App extends Component {
     inputValue: "",
   };
 
-  // function filterResults(){
-  //   this.state.emps.inculdes(props.search)
-  // }
-
   clearResults = (event) => {
     this.setState({ inputValue: "" });
   };
 
   handleOnchange = (event) => {
-    this.setState({ search: event.target.value });
+    this.setState({ ...this.state, search: event.target.value });
     console.log(event.target.value);
   };
 
