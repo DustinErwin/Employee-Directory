@@ -7,12 +7,13 @@ import fetchEmps from "../../utils/API";
 export default function TableBody({ search }) {
   const [state, setState] = useState({
     emps: [{ name: "nerd", email: "email", years: "years", phone: "0009090" }],
+    temps: [{ name: "nerd", email: "email", years: "years", phone: "0009090" }],
   });
 
   useEffect(() => {
     fetchEmps()
       .then((data) => {
-        setState({ emps: data });
+        setState({ emps: data, temps: data });
       })
       .catch((err) => console.log(err));
   }, []);

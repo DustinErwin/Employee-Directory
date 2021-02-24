@@ -7,16 +7,18 @@ import Wrapper from "./components/Wrapper";
 class App extends Component {
   state = {
     search: "",
+    rePop: false,
   };
 
   clearResults = () => {
     this.setState({ search: "" });
+    console.log(this.state.rePop);
+    this.setState({ rePop: true });
   };
 
   handleOnchange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    console.log(value);
   };
 
   render() {
@@ -33,7 +35,7 @@ class App extends Component {
           ></input>
           <FilterButton clear={this.clearResults} />
         </Wrapper>
-        <Table search={this.state.search} />
+        <Table search={this.state.search} rePop={this.state.rePop} />
       </div>
     );
   }
