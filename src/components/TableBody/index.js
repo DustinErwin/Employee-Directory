@@ -26,6 +26,10 @@ export default function TableBody({ search }) {
       setState({ ...state, emps: filteredEmps });
     }
     searchEmps();
+
+    if (search === "") {
+      setState({ ...state, emps: state.temps });
+    }
   }, [search]);
 
   return (
