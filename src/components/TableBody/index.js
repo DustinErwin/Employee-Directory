@@ -20,7 +20,9 @@ export default function TableBody({ search }) {
 
   useEffect(() => {
     function searchEmps() {
-      let filteredEmps = state.emps.filter((emp) => emp.name.includes(search));
+      let filteredEmps = state.emps.filter((emp) =>
+        emp.name.toLowerCase().includes(search.toLowerCase())
+      );
       setState({ ...state, emps: filteredEmps });
     }
     searchEmps();

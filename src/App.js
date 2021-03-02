@@ -12,8 +12,6 @@ class App extends Component {
 
   clearResults = () => {
     this.setState({ search: "" });
-    console.log(this.state.rePop);
-    this.setState({ rePop: true });
   };
 
   handleOnchange = (event) => {
